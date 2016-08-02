@@ -52,7 +52,7 @@ public class ExportLogin extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(ConrolScreen.class
+		label.setIcon(new ImageIcon(ControlScreen.class
 				.getResource("/img/Wittur_Logo.gif")));
 		label.setBounds(20, 37, 100, 90);
 		contentPane.add(label);

@@ -52,9 +52,9 @@ import com.lewei.model.TPPlan;
  * @author djzhao
  * @time 2015年10月28日
  */
-public class ConrolScreen extends JFrame {
+public class ControlScreen extends JFrame {
 
-	private static ConrolScreen frame = null;
+	private static ControlScreen frame = null;
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -123,7 +123,7 @@ public class ConrolScreen extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frame = new ConrolScreen();
+					frame = new ControlScreen();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -136,7 +136,7 @@ public class ConrolScreen extends JFrame {
 	 * Create the frame.
 	 */
 	@SuppressWarnings("unchecked")
-	public ConrolScreen() {
+	public ControlScreen() {
 		// 不可改变窗口大小
 		setResizable(false);
 		// 设置左上角的标题图标
@@ -164,7 +164,7 @@ public class ConrolScreen extends JFrame {
 		contentPane.add(separator);
 
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(ConrolScreen.class
+		label.setIcon(new ImageIcon(ControlScreen.class
 				.getResource("/img/Wittur_Logo.gif")));
 		label.setBounds(768, 68, 100, 90);
 		contentPane.add(label);
@@ -340,6 +340,10 @@ public class ConrolScreen extends JFrame {
 		contentPane.add(scrollPane);
 
 		submit = new JButton("提交");
+		submit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		submit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -477,11 +481,13 @@ public class ConrolScreen extends JFrame {
 									/** 插入数据库 */
 									int state = lcd.insertToTplprod(p);
 									if (state < 0) {
-										System.out.println("falied!");
+										System.out.println("insertToTplprod falied!");
 									}
-								} else {
-									break;
 								}
+								// 此处注释表明，未进行排序依旧可以插入数据（插入所有存在优先级的产品）
+								/*else {
+									break;
+								}*/
 							}
 						}
 
@@ -861,6 +867,10 @@ public class ConrolScreen extends JFrame {
 		contentPane.add(button_1);
 
 		JButton button_2 = new JButton("\u5BFC\u51FA\u62A5\u8868");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		button_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

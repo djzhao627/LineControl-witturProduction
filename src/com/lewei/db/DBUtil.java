@@ -16,7 +16,9 @@ public class DBUtil {
 	private static final String URL = "jdbc:mysql://127.0.0.1:3306/warning_light";
 
 	private static final String USER = "root";
-
+	// 威特
+	// private static final String PASSWORD = "";
+	// 本机
 	private static final String PASSWORD = "888888";
 
 	private static Connection conn = null;
@@ -37,14 +39,18 @@ public class DBUtil {
 
 	public static void main(String[] args) throws Exception {
 
+		DBUtil.getConn();
+
 		// 3.通过数据库的连接操作数据库（增删改查）
 		Statement statement = conn.createStatement();
 		// 4.通过查询返回结果
-		ResultSet rs = statement.executeQuery("select * from tpplantable");
+		ResultSet rs = statement.executeQuery("select * from tpplan");
 		// 5.循环去除 rs 中的结果
 		while (rs.next()) {
 			System.out.println(rs.getObject(3));
 		}
+		
+		System.out.println(statement.isPoolable());
 
 	}
 
